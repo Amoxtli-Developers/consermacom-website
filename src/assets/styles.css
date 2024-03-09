@@ -1,0 +1,59 @@
+body {
+  font-family: "Barlow", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Barlow", sans-serif;
+  font-weight: bold;
+}
+
+.navbar {
+  justify-content: space-between; /* This will space out the logo and the menu items */
+  padding: 1.5rem 10rem;
+  background-color: transparent !important;
+}
+
+.navbar-brand {
+  font-weight: bold; /* Make LOGO bold */
+}
+
+.navbar .nav-item {
+  margin-left: 20px; /* Add some spacing between nav items */
+}
+
+.social-icons {
+  font-size: 1em; /* Increase the size of the icons */
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.phone-number {
+  margin-right: 20px; /* Add some spacing before the phone number */
+}
+
+.main-carousel {
+  border-radius: 20px;
+  text-align: center;
+}
+
+.image-placeholder {
+  background-color: #e1e1e1; /* Placeholder background color */
+  width: 100%; /* Full width */
+  height: 300px; /* Fixed height, you can adjust it */
+  display: flex; /* To center the icon both vertically and horizontally */
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Align items horizontally */
+}
+
+.bi-image {
+  font-size: 2rem; /* Size of the placeholder icon */
+}
