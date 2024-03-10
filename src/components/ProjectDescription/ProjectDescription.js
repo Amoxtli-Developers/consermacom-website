@@ -53,7 +53,7 @@ const ProjectDetails = ({ projectId }) => {
       <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
         <Grid container spacing={isMobile ? 2 : 4}>
           <Grid item xs={12} md={8} sx={{ marginRight: isMobile ? 0 : "40px" }}>
-            <Box sx={{ pr: { md: 4 }, borderRight: { md: '1.5px solid #000', paddingRight: isMobile ? 0 : '20px' } }}>
+            <Box sx={{ pr: { md: 4 }, borderRight: { md: '1px solid #000', paddingRight: isMobile ? 0 : '20px' } }}>
               <Typography variant="h4" gutterBottom sx={{ fontSize: isMobile ? "32px" : "40px", fontWeight: "bold", marginTop: isMobile ? "20px" : "30px", marginBottom: isMobile ? "20px" : "30px" }}>{title}</Typography>
               <Typography variant="body1" gutterBottom sx={{ fontSize: isMobile ? "16px" : "20px", color: "#868686", marginBottom: "20px" }}>{description}</Typography>
               <Typography variant="body1" gutterBottom sx={{ fontSize: isMobile ? "16px" : "20px", color: "#868686", marginBottom: "40px" }}>{description2}</Typography>
