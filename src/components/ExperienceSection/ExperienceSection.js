@@ -28,7 +28,7 @@ const ExperienceSection = () => {
           variant="h2"
           component="h2"
           gutterBottom
-          sx={{ fontSize: "40px", fontWeight: "bold" }}
+          sx={{ fontSize: "50px", fontWeight: "bold" }}
         >
           25 años de <br />
           experiencia

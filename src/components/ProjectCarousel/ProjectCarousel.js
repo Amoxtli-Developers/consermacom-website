@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import CarouselCard from "../CarouselCard/CarouselCard";
 import carouselPlaceholder from "../../assets/images/home/main-slider1.png";
 
-function MainCarousel() {
+function ProjectCarousel() {
   const theme = useTheme();
   // Adjust breakpoints as needed
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -25,27 +25,18 @@ function MainCarousel() {
 
   const cardsData = [
     {
-      title: "NOMBRE DE PROYECTO",
-      description:
-        "Descripción del proyecto Descripción del proyecto Descripción",
       imageUrl: carouselPlaceholder,
     },
     {
-      title: "NOMBRE DE PROYECTO2",
-      description:
-        "Descripción del proyecto Descripción del proyecto Descripción",
       imageUrl: carouselPlaceholder,
     },
     {
-      title: "NOMBRE DE PROYECTO3",
-      description:
-        "Descripción del proyecto Descripción del proyecto Descripción",
       imageUrl: carouselPlaceholder,
     },
   ];
 
   // Define the desired height for the slides dynamically
-  const slideHeight = isMobile ? "50vh" : "80vh";
+  const slideHeight = isMobile ? "30vh" : "60vh";
 
   return (
     <Box
@@ -58,20 +49,30 @@ function MainCarousel() {
             sx={{
               height: slideHeight,
               // Adjust padding or other properties for responsiveness
-              padding: isMobile ? "0 20px" : "0 50px",
+              padding: isMobile ? "0 25px" : "0 55px",
               boxSizing: "border-box",
             }}
           >
             <CarouselCard
-              title={card.title}
-              description={card.description}
               imageUrl={card.imageUrl}
             />
           </Box>
         ))}
       </Slider>
+      <style>
+        {`
+          .slick-dots {
+            position: relative;
+            bottom: -5px; /* Ajusta la posición vertical de los puntos indicadores */
+          }
+
+          .slick-dots li button:before {
+            font-size: 12px; /* Ajusta el tamaño de los puntos indicadores */
+          }
+        `}
+      </style>
     </Box>
   );
 }
 
-export default MainCarousel;
+export default ProjectCarousel;
