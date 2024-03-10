@@ -21,7 +21,7 @@ const Header = ({ title, text }) => {
         sx={{
           paddingX: { xs: 2, sm: 10 }, // Horizontal padding, more on larger screens
           display: "inline-block", // Allows the padding to affect layout
-          textAlign: "left", // Text aligned to the left
+          textAlign: "center", // Text aligned to the left
           maxWidth: "1000px", // Maximum width of the text box
           margin: "auto", // Center the box horizontally
         }}
