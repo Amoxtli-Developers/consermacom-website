@@ -16,7 +16,7 @@ const Footer = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const boxPaddingX = isMobile ? 2 : 10;
-  const boxMarginX = isMobile ? 2 : 15;
+  const boxMarginX = isMobile ? 2 : 10;
   const boxPaddingY = isMobile ? 2 : 15;
   const iconSize = isMobile ? 'small' : 'medium';
 

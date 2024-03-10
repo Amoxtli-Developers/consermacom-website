@@ -26,6 +26,7 @@ const ServicesList = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
+  const buttonText = "Ver más servicios";
 
   return (
     <Box
@@ -78,7 +79,9 @@ const ServicesList = () => {
                 },
               }}
             >
-              <CardActionArea sx={{ height: "100%", width: "100%", cursor: "default" }}>
+              <CardActionArea
+                sx={{ height: "100%", width: "100%", cursor: "default" }}
+              >
                 <CardContent
                   sx={{
                     padding: 0,
@@ -95,7 +98,9 @@ const ServicesList = () => {
                     },
                   }}
                 >
-                  <Typography variant="h6" sx={{fontWeight: "bold"}}>{service.title}</Typography>
+                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                    {service.title}
+                  </Typography>
                 </CardContent>
               </CardActionArea>
             </Card>
@@ -105,14 +110,16 @@ const ServicesList = () => {
       <Box sx={{ display: "flex", justifyContent: "center", marginTop: 2 }}>
         <Button
           variant="contained"
-          sx={{
-            borderRadius: "50px",
-            backgroundColor: "black",
-            color: "white",
-            padding: "1rem 3rem",
+          style={{
+            backgroundColor: "#D9D9D9",
+            color: "#000",
+            borderRadius: "20px",
+            padding: "10px 40px" /* Ajusta el padding horizontal aquí */,
+            fontWeight: "bold",
+            fontFamily: "Barlow, sans-serif",
           }}
         >
-          Ver más servicios
+          {buttonText}
         </Button>
       </Box>
     </Box>

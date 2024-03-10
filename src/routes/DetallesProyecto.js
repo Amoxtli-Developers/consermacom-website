@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import ProjectCarousel from "../components/ProjectCarousel/ProjectCarousel";
 import ProjectDescription from "../components/ProjectDescription/ProjectDescription";
 import WorkButton from "../components/WorkButton/WorkButton";
+import Footer from "../components/Footer/Footer";
 
 const theme = createTheme({
     typography: {
@@ -19,6 +20,7 @@ function DetallesProyecto() {
       <ProjectCarousel />
       <ProjectDescription projectId={id}/>
       <WorkButton />
+      <Footer />
     </ThemeProvider>
   );
 }

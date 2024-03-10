@@ -32,7 +32,7 @@ const Gallery = () => {
   ];
 
   return (
-    <div>
+    <Box sx={{paddingBottom: 10}}>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '60px', marginBottom: '60px' }}>
         <ToggleButtonGroup value={filter} exclusive onChange={handleFilterChange} aria-label="filtro">
           <ToggleButton value="all" style={{ border: 'none', padding: '8px', borderRadius: '0', background: 'none' }}>Todos</ToggleButton>
@@ -42,7 +42,6 @@ const Gallery = () => {
           <ToggleButton value="category4" style={{ border: 'none', padding: '8px', borderRadius: '0', background: 'none' }}>Categoría 4</ToggleButton>
         </ToggleButtonGroup>
       </div>
-      {/* Galería de imágenes */}
       <Box
         sx={{
           padding: isMobile ? "0 20px" : "0 120px",
@@ -61,7 +60,7 @@ const Gallery = () => {
             ))}
         </Grid>
       </Box>
-    </div>
+    </Box>
   );
 };
 

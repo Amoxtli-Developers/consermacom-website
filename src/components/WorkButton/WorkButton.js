@@ -6,7 +6,7 @@ const WorkButton = () => {
   const buttonText = "Trabajemos juntos";
 
   return (
-    <Box textAlign="center">
+    <Box textAlign="center" sx={{paddingBottom: 10}}>
       <Typography variant="subtitle1" gutterBottom sx={{ fontSize: "30px", fontWeight: "bold", marginTop: "80px", marginBottom: "40px"}}>{subtitle}</Typography>
       <Button
         variant="contained"
