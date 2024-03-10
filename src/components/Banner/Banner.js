@@ -1,7 +1,6 @@
 import React from "react";
-import { Box,Card, CardContent, Typography, useTheme } from "@mui/material";
+import { Box, Card, CardContent, Typography, useTheme } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
-
 
 const Banner = (props) => {
   const { title, description, imageUrl } = props;
@@ -19,7 +18,7 @@ const Banner = (props) => {
     backgroundPosition: "center",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     color: "white",
-    height: "100%", 
+    height: "100%",
     borderRadius: "20px",
   };
 
@@ -27,38 +26,36 @@ const Banner = (props) => {
   const descriptionFontSize = matchesSM ? "18px" : "25px";
   const slideHeight = isMobile ? "30vh" : "45vh";
 
-
   return (
     <Box
-            sx={{
-                padding: isMobile ? "0 20px" : "0 50px",
-                boxSizing: "border-box",
-            }}
-            >
-        <Card sx={{ ...cardStyles, height: slideHeight }}>
-            <CardContent    
-                sx={{
-                flexGrow: 1,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                textAlign: "center",
-                }}
-            >
-                <Typography
-                gutterBottom
-                variant="h1"
-                component="h1"
-                sx={{ fontSize: titleFontSize, fontWeight: "bold" }}
-                >
-                {title}
-                </Typography>
-                <Typography variant="body2" sx={{ fontSize: descriptionFontSize }}>
-                {description}
-                </Typography>
-            </CardContent>
-            
-        </Card>
+      sx={{
+        padding: isMobile ? "0 20px" : "0 50px",
+        boxSizing: "border-box",
+      }}
+    >
+      <Card sx={{ ...cardStyles, height: slideHeight }}>
+        <CardContent
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            gutterBottom
+            variant="h1"
+            component="h1"
+            sx={{ fontSize: titleFontSize, fontWeight: "bold" }}
+          >
+            {title}
+          </Typography>
+          <Typography variant="body2" sx={{ fontSize: descriptionFontSize }}>
+            {description}
+          </Typography>
+        </CardContent>
+      </Card>
     </Box>
   );
 };
