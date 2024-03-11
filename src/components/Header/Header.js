@@ -13,7 +13,7 @@ const Header = ({ title, text }) => {
         variant="h2"
         component="h2"
         gutterBottom
-        sx={{ fontWeight: "bold", fontSize: "50px", marginBottom: 4 }}
+        sx={{ fontWeight: "bold", fontSize: "50px", marginBottom: 4, color: "#c80000"}}
       >
         {title}
       </Typography>

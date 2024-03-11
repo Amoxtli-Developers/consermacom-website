@@ -27,36 +27,36 @@ const ContactForm = () => {
     >
       <Grid container spacing={4}>
         <Grid item xs={12} md={4}>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" gutterBottom sx={{color: "#164d8d"}}>
             Dirección
           </Typography>
           <Typography>
             Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
             ipsum
           </Typography>
-          <Typography variant="h6" gutterBottom mt={2}>
+          <Typography variant="h6" gutterBottom mt={2} sx={{color: "#164d8d"}}>
             Teléfono
           </Typography>
           <Typography> +52 (55) 0957 4783 </Typography>
-          <Typography variant="h6" gutterBottom mt={2}>
+          <Typography variant="h6" gutterBottom mt={2} sx={{color: "#164d8d"}}>
             Correo
           </Typography>
           <Typography> lorem@lorem.com </Typography>
-          <Typography variant="h6" gutterBottom mt={2}>
+          <Typography variant="h6" gutterBottom mt={2} sx={{color: "#164d8d"}}>
             Síguenos
           </Typography>
           <IconButton aria-label="facebook">
-            <FacebookIcon />
+            <FacebookIcon sx={{color: "#c80000"}}/>
           </IconButton>
           <IconButton aria-label="linkedin">
-            <LinkedInIcon />
+            <LinkedInIcon sx={{color: "#c80000"}}/>
           </IconButton>
           <IconButton aria-label="instagram">
-            <InstagramIcon />
+            <InstagramIcon sx={{color: "#c80000"}}/>
           </IconButton>
         </Grid>
         <Grid item xs={12} md={8}>
-          <Typography variant="h2" gutterBottom sx={{ fontWeight: "bold" }}>
+          <Typography variant="h2" gutterBottom sx={{ fontWeight: "bold", color: "#c80000"}}>
             Déjanos un mensaje
           </Typography>
           <Grid container spacing={2}>
@@ -87,8 +87,8 @@ const ContactForm = () => {
                 variant="contained"
                 size="large"
                 style={{
-                  backgroundColor: "#D9D9D9",
-                  color: "#000",
+                  backgroundColor: "#c80000",
+                  color: "white",
                   borderRadius: "20px",
                   padding: "10px 40px" /* Ajusta el padding horizontal aquí */,
                   fontWeight: "bold",

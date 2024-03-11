@@ -47,17 +47,37 @@ function ProjectGrid({ projects }) {
         variant="h3"
         component="h3"
         paddingBottom={3}
-        sx={{ fontSize: isMobile ? "1.5rem" : "2.5rem", fontWeight: "bold" }}
+        sx={{
+          fontSize: isMobile ? "1.5rem" : "2.5rem",
+          fontWeight: "bold",
+          color: "#164d8d",
+        }}
       >
-        Descubre nuestros proyectos 
+        Descubre nuestros proyectos
       </Typography>
-      <Box sx={{ borderBottom: 1, borderColor: "transparent", paddingBottom: 3 }}>
+      <Box
+        sx={{ borderBottom: 1, borderColor: "transparent", paddingBottom: 3 }}
+      >
         <Tabs
           value={value}
           onChange={handleChange}
           variant="scrollable"
           scrollButtons="auto"
           aria-label="project categories"
+          TabIndicatorProps={{
+            sx: {
+              backgroundColor: "#c80000", // Change underline color here
+            },
+          }}
+          sx={{
+            "& .MuiTabs-indicator": {
+              backgroundColor: "#c80000", // This also changes the underline color
+            },
+            "& .Mui-selected": {
+              color: "#c80000", // Change active tab text color here
+              fontWeight: "bold", // Change font weight for active tab
+            },
+          }}
         >
           <Tab label="Todos" />
           <Tab label="Categoría1" />
@@ -106,7 +126,7 @@ function ProjectGrid({ projects }) {
                     flexDirection: "column",
                     justifyContent: "center", // Center content vertically
                     alignItems: "center", // Center content horizontally
-                    backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent overlay
+                    backgroundColor: "#c80000", // Semi-transparent overlay
                     color: "white", // Text color
                     transition: "opacity 0.3s ease-in-out", // Smooth transition
                     opacity: 0, // Transparent by default
@@ -117,7 +137,7 @@ function ProjectGrid({ projects }) {
                     gutterBottom
                     variant="h5"
                     component="h5"
-                    sx={{ fontWeight: "bold", fontSize: "30px"}}
+                    sx={{ fontWeight: "bold", fontSize: "30px" }}
                   >
                     {project.title}
                   </Typography>
