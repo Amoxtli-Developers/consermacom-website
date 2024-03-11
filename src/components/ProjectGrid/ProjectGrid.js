@@ -66,16 +66,16 @@ function ProjectGrid({ projects }) {
           aria-label="project categories"
           TabIndicatorProps={{
             sx: {
-              backgroundColor: "#c80000", // Change underline color here
+              backgroundColor: "#c80000",
             },
           }}
           sx={{
             "& .MuiTabs-indicator": {
-              backgroundColor: "#c80000", // This also changes the underline color
+              backgroundColor: "#c80000",
             },
             "& .Mui-selected": {
-              color: "#c80000", // Change active tab text color here
-              fontWeight: "bold", // Change font weight for active tab
+              color: "#c80000 !important", 
+              fontWeight: "bold", 
             },
           }}
         >
