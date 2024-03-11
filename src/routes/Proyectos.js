@@ -13,6 +13,61 @@ import Nav from "../components/Nav/Nav";
 import Banner from "../components/Banner/Banner";
 import Gallery from "../components/Gallery/Gallery";
 import Footer from "../components/Footer/Footer";
+import projectPlaceholder from "../assets/images/home/experience.png";
+
+
+const projectsData = [
+  {
+    id: 1,
+    category: 0,
+    image: projectPlaceholder,
+    title: "Project 1 Title",
+    description: "Description for Project 1",
+  },
+  {
+    id: 2,
+    category: 1,
+    image: projectPlaceholder,
+    title: "Project 2 Title",
+    description: "Description for Project 2",
+  },
+  {
+    id: 3,
+    category: 1,
+    image: projectPlaceholder,
+    title: "Project 2 Title",
+    description: "Description for Project 2",
+  },
+  {
+    id: 4,
+    category: 1,
+    image: projectPlaceholder,
+    title: "Project 2 Title",
+    description: "Description for Project 2",
+  },
+  {
+    id: 5,
+    category: 1,
+    image: projectPlaceholder,
+    title: "Project 2 Title",
+    description: "Description for Project 2",
+  },
+  {
+    id: 6,
+    category: 1,
+    image: projectPlaceholder,
+    title: "Project 2 Title",
+    description: "Description for Project 2",
+  },
+  {
+    id: 7,
+    category: 1,
+    image: projectPlaceholder,
+    title: "Project 2 Title",
+    description: "Description for Project 2",
+  },
+];
+
 
 const theme = createTheme({
   typography: {
@@ -70,7 +125,7 @@ function Proyectos() {
       <div ref={refGallery}>
         <Fade in={inViewGallery} timeout={1000}>
           <div>
-            <Gallery />
+            <Gallery projects={projectsData} />
           </div>
         </Fade>
       </div>
