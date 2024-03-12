@@ -56,7 +56,12 @@ function ProjectGrid({ projects }) {
         Descubre nuestros proyectos
       </Typography>
       <Box
-        sx={{ borderBottom: 1, borderColor: "transparent", paddingBottom: 3 }}
+        sx={{
+          borderBottom: 1,
+          borderColor: "transparent",
+          paddingBottom: 3,
+
+        }}
       >
         <Tabs
           value={value}
@@ -74,8 +79,8 @@ function ProjectGrid({ projects }) {
               backgroundColor: "#c80000",
             },
             "& .Mui-selected": {
-              color: "#c80000 !important", 
-              fontWeight: "bold", 
+              color: "#c80000 !important",
+              fontWeight: "bold",
             },
           }}
         >

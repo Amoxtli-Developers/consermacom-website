@@ -176,7 +176,6 @@ function Home() {
           </div>
         </Fade>
       </div>
-      {/* Footer remains unchanged */}
       <Footer />
     </ThemeProvider>
   );

@@ -27,36 +27,36 @@ const ContactForm = () => {
     >
       <Grid container spacing={4}>
         <Grid item xs={12} md={4}>
-          <Typography variant="h6" gutterBottom sx={{color: "#164d8d"}}>
+          <Typography variant="h6" gutterBottom sx={{color: "#c80000"}}>
             Dirección
           </Typography>
           <Typography>
             Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
             ipsum
           </Typography>
-          <Typography variant="h6" gutterBottom mt={2} sx={{color: "#164d8d"}}>
+          <Typography variant="h6" gutterBottom mt={2} sx={{color: "#c80000"}}>
             Teléfono
           </Typography>
           <Typography> +52 (55) 0957 4783 </Typography>
-          <Typography variant="h6" gutterBottom mt={2} sx={{color: "#164d8d"}}>
+          <Typography variant="h6" gutterBottom mt={2} sx={{color: "#c80000"}}>
             Correo
           </Typography>
           <Typography> lorem@lorem.com </Typography>
-          <Typography variant="h6" gutterBottom mt={2} sx={{color: "#164d8d"}}>
+          <Typography variant="h6" gutterBottom mt={2} sx={{color: "#c80000"}}>
             Síguenos
           </Typography>
           <IconButton aria-label="facebook">
-            <FacebookIcon sx={{color: "#c80000"}}/>
+            <FacebookIcon sx={{color: "black"}}/>
           </IconButton>
           <IconButton aria-label="linkedin">
-            <LinkedInIcon sx={{color: "#c80000"}}/>
+            <LinkedInIcon sx={{color: "black"}}/>
           </IconButton>
           <IconButton aria-label="instagram">
-            <InstagramIcon sx={{color: "#c80000"}}/>
+            <InstagramIcon sx={{color: "black"}}/>
           </IconButton>
         </Grid>
         <Grid item xs={12} md={8}>
-          <Typography variant="h2" gutterBottom sx={{ fontWeight: "bold", color: "#c80000"}}>
+          <Typography variant="h2" gutterBottom sx={{ fontWeight: "bold", color: "#164d8d"}}>
             Déjanos un mensaje
           </Typography>
           <Grid container spacing={2}>

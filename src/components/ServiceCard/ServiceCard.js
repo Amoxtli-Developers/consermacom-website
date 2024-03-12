@@ -10,7 +10,7 @@ const ServiceCard = ({ serviceName, serviceDescription }) => {
       <CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 2 }}>
           <ImageIcon sx={{ fontSize: 60, color: 'action.active', mr: 2 }} />
-          <Typography gutterBottom variant="h5" component="h5" sx={{fontWeight: "bold", color:"#164d8d"}}>
+          <Typography gutterBottom variant="h5" component="h5" sx={{fontWeight: "bold", color:"#c80000"}}>
             {serviceName}
           </Typography>
         </Box>
