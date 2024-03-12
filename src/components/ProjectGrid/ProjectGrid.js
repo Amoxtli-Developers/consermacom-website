@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import PropTypes from 'prop-types';
 
-function ProjectGrid({ projects, tabsAlignment }) {
+function ProjectGrid({ projects, tabsAlignment, titleActive}) {
   const [value, setValue] = useState(0);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -53,6 +53,7 @@ function ProjectGrid({ projects, tabsAlignment }) {
           fontSize: isMobile ? "1.5rem" : "2.5rem",
           fontWeight: "bold",
           color: "#164d8d",
+          display: titleActive ? "block" : "none",
         }}
       >
         Descubre nuestros proyectos
