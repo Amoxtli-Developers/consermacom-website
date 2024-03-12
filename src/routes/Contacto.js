@@ -48,7 +48,7 @@ function Contacto() {
         alignItems="center"
         minHeight="100vh"
       >
-        <CircularProgress sx={{ color: "black" }} />
+        <CircularProgress sx={{ color: "#c80000" }} />
       </Box>
     );
   }

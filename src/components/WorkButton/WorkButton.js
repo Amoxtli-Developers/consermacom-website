@@ -7,12 +7,12 @@ const WorkButton = () => {
 
   return (
     <Box textAlign="center" sx={{paddingBottom: 10}}>
-      <Typography variant="subtitle1" gutterBottom sx={{ fontSize: "30px", fontWeight: "bold", marginTop: "80px", marginBottom: "40px"}}>{subtitle}</Typography>
+      <Typography variant="subtitle1" gutterBottom sx={{ fontSize: "50px", fontWeight: "bold", marginTop: "80px", marginBottom: "40px", color:"#164d8d"}}>{subtitle}</Typography>
       <Button
         variant="contained"
         style={{
-          backgroundColor: "#D9D9D9",
-          color: "#000",
+          backgroundColor: "#c80000",
+          color: "white",
           borderRadius: "20px",
           padding: "10px 40px", /* Ajusta el padding horizontal aquí */
           fontWeight: "bold",

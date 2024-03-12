@@ -13,6 +13,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { Link as RouterLink } from "react-router-dom";
+import logo from "../../assets/images/logo/consermacom.png";
 
 const pages = ["Inicio", "Nosotros", "Proyectos", "Servicios", "Contacto"];
 
@@ -28,24 +29,34 @@ function Nav() {
   };
 
   return (
-    <AppBar position="static" color="transparent" sx={{ boxShadow: "none" }}>
+    <AppBar
+      position="static"
+      color="transparent"
+      sx={{ boxShadow: "none", marginBottom: 3, marginTop: 2 }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+            component={RouterLink}
+            to="/"
             sx={{
-              mr: 2,
               display: { xs: "none", md: "flex" },
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "black",
+              alignItems: "center",
               textDecoration: "none",
+              marginRight: 5,
             }}
           >
-            LOGO
+            <Box
+              component="img"
+              src={logo}
+              alt="Logo"
+              sx={{
+                height: 60,
+                display: "block",
+              }}
+            />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -84,7 +95,7 @@ function Nav() {
                   component={RouterLink}
                   to={`/${page === "Inicio" ? "" : page.toLowerCase()}`}
                 >
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" sx={{color: "#164d8d", fontWeight: "bold"}}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -102,9 +113,18 @@ function Nav() {
               letterSpacing: ".3rem",
               color: "black",
               textDecoration: "none",
+              justifyContent: "end",
             }}
           >
-            LOGO
+            <Box
+              component="img"
+              src={logo}
+              alt="Logo"
+              sx={{
+                height: 60,
+                display: "block",
+              }}
+            />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
@@ -113,7 +133,7 @@ function Nav() {
                 onClick={handleCloseNavMenu}
                 component={RouterLink}
                 to={`/${page === "Inicio" ? "" : page.toLowerCase()}`}
-                sx={{ my: 2, color: "black", display: "block" }}
+                sx={{ my: 2, color: "#164d8d", fontWeight: "bold", display: "block" }}
               >
                 {page}
               </Button>
@@ -129,37 +149,34 @@ function Nav() {
             <Typography variant="body1" sx={{ mr: 5 }}>
               <a
                 href="tel:+5555555555"
-                style={{ color: "inherit", textDecoration: "none" }}
+                style={{ color: "#164d8d", textDecoration: "none" }}
               >
                 Llámanos: 55 5555-5555
               </a>
             </Typography>
             <IconButton
-              color="inherit"
               component="a"
               href="https://www.instagram.com"
               aria-label="Instagram"
               target="_blank"
             >
-              <InstagramIcon />
+              <InstagramIcon sx={{ color: "#c80000" }}/> 
             </IconButton>
             <IconButton
-              color="inherit"
               component="a"
               href="https://www.facebook.com"
               aria-label="Facebook"
               target="_blank"
             >
-              <FacebookIcon />
+              <FacebookIcon sx={{ color: "#c80000" }}/>
             </IconButton>
             <IconButton
-              color="inherit"
               component="a"
               href="https://api.whatsapp.com/send?phone=5555555555"
               aria-label="WhatsApp"
               target="_blank"
             >
-              <WhatsAppIcon />
+              <WhatsAppIcon sx={{ color: "#c80000" }} />
             </IconButton>
           </Box>
         </Toolbar>

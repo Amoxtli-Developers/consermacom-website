@@ -38,7 +38,7 @@ const ServicesList = () => {
       <Typography
         variant="h2"
         gutterBottom
-        sx={{ fontWeight: "bold", fontSize: "40px" }}
+        sx={{ fontWeight: "bold", fontSize: "40px", color: "#164d8d" }}
       >
         Servicios Consermacom
       </Typography>
@@ -90,7 +90,7 @@ const ServicesList = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    backgroundColor: "#c80000", // Adjust values as needed
                     color: "white",
                     opacity: 0,
                     "&:hover": {
@@ -111,8 +111,8 @@ const ServicesList = () => {
         <Button
           variant="contained"
           style={{
-            backgroundColor: "#D9D9D9",
-            color: "#000",
+            backgroundColor: "#c80000",
+            color: "white",
             borderRadius: "20px",
             padding: "10px 40px" /* Ajusta el padding horizontal aquí */,
             fontWeight: "bold",
