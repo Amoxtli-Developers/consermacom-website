@@ -151,7 +151,7 @@ function Home() {
       <div ref={refProjectGrid}>
         <Fade in={inViewProjectGrid} timeout={1000}>
           <div>
-            <ProjectGrid projects={projectsData} />
+            <ProjectGrid projects={projectsData} tabsAlignment="left" />
           </div>
         </Fade>
       </div>

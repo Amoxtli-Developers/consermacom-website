@@ -1,3 +1,4 @@
+// ProjectGrid.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -13,8 +14,9 @@ import {
   useMediaQuery,
   CardMedia,
 } from "@mui/material";
+import PropTypes from 'prop-types';
 
-function ProjectGrid({ projects }) {
+function ProjectGrid({ projects, tabsAlignment }) {
   const [value, setValue] = useState(0);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -60,7 +62,8 @@ function ProjectGrid({ projects }) {
           borderBottom: 1,
           borderColor: "transparent",
           paddingBottom: 3,
-
+          justifyContent: tabsAlignment, // align tabs box
+          display: "flex",
         }}
       >
         <Tabs
@@ -97,12 +100,12 @@ function ProjectGrid({ projects }) {
             <CardActionArea onClick={() => handleCardClick(project.id)}>
               <Card
                 sx={{
-                  height: 300, // Set a fixed height
+                  height: 300,
                   borderRadius: "20px",
-                  position: "relative", // Needed for absolute positioning of the content
-                  overflow: "hidden", // Ensure the content doesn't spill out
+                  position: "relative",
+                  overflow: "hidden",
                   "&:hover .cardContent": {
-                    opacity: 1, // Show the content on hover
+                    opacity: 1,
                   },
                 }}
               >
@@ -115,7 +118,7 @@ function ProjectGrid({ projects }) {
                     objectFit: "cover",
                     transition: "transform .5s ease-in-out",
                     "&:hover": {
-                      transform: "scale(1.05)", // Optional: zoom effect on hover
+                      transform: "scale(1.05)",
                     },
                   }}
                 />
@@ -129,13 +132,13 @@ function ProjectGrid({ projects }) {
                     left: 0,
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "center", // Center content vertically
-                    alignItems: "center", // Center content horizontally
-                    backgroundColor: "#c80000", // Semi-transparent overlay
-                    color: "white", // Text color
-                    transition: "opacity 0.3s ease-in-out", // Smooth transition
-                    opacity: 0, // Transparent by default
-                    padding: theme.spacing(2), // Use theme spacing for padding
+                    justifyContent: "center",
+                    alignItems: "center",
+                    backgroundColor: "#c80000",
+                    color: "white",
+                    transition: "opacity 0.3s ease-in-out",
+                    opacity: 0,
+                    padding: theme.spacing(2),
                   }}
                 >
                   <Typography
@@ -156,5 +159,21 @@ function ProjectGrid({ projects }) {
     </Box>
   );
 }
+
+ProjectGrid.propTypes = {
+  projects: PropTypes.array.isRequired,
+  tabsAlignment: PropTypes.oneOf([
+    'center',
+    'flex-start',
+    'flex-end',
+    'space-between',
+    'space-around',
+    'space-evenly',
+  ]),
+};
+
+ProjectGrid.defaultProps = {
+  tabsAlignment: 'center',
+};
 
 export default ProjectGrid;
