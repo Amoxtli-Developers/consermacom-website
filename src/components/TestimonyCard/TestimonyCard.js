@@ -1,98 +1,100 @@
+// components/TestimonyCard.jsx
 import React from "react";
 import {
-  Card,
-  CardContent,
-  Typography,
-  useTheme,
-  useMediaQuery,
-  Box,
+    Card,
+    CardContent,
+    Typography,
+    Box,
+    useTheme,
+    useMediaQuery,
 } from "@mui/material";
-import QuoteIcon from "@mui/icons-material/FormatQuote";
-import testimonyBackgroundImage from "../../assets/images/home/experience.png"; // Path to your background image
+import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
-function TestimonyCard({ testimonial, name }) {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
+export function TestimonyCard({ title, text, author }) {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  return (
-    <Box
-      sx={{
-        padding: isMobile ? "0 20px" : isTablet ? "0 50px" : "0 100px",
-      }}
-    >
-      <Card
-        sx={{
-          backgroundImage: `url(${testimonyBackgroundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          borderRadius: "20px",
-          minHeight: isMobile ? 300 : 434, // Smaller minHeight for mobile
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          margin: "auto",
-          position: "relative",
-        }}
-      >
+    return (
         <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0,0,0,0.5)",
-            borderRadius: "inherit",
-          }}
-        />
-        <CardContent
-          sx={{
-            textAlign: "center",
-            position: "relative",
-          }}
+            sx={{
+                px: isMobile ? 2 : 4,
+                // make this wrapper a flex item that can grow
+                display: "flex",
+                height: "100%",
+            }}
         >
-          <Typography
-            variant="h2"
-            component="h2"
-            gutterBottom
-            sx={{
-              fontWeight: "bold",
-              color: theme.palette.common.white,
-              fontSize: isMobile ? "2.5rem" : isTablet ? "3.5rem" : "4rem", // Adjusted fontSize
-            }}
-          >
-            Testimonios
-          </Typography>
-          <QuoteIcon
-            sx={{
-              color: theme.palette.common.white,
-              fontSize: isMobile ? "30px" : "40px",
-            }}
-          />
-          <Typography
-            variant="body1"
-            sx={{
-              color: theme.palette.common.white,
-              mb: 10,
-              fontSize: isMobile ? "1rem" : isTablet ? "1.5rem" : "2rem", // Adjusted fontSize for text
-            }}
-          >
-            {testimonial}
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: theme.palette.common.white,
-              fontSize: isMobile ? "1rem" : "1.25rem", // Adjusted fontSize for name
-            }}
-          >
-            - {name}
-          </Typography>
-        </CardContent>
-      </Card>
-    </Box>
-  );
+            <Card
+                elevation={3}
+                sx={{
+                    // fill the Box vertically
+                    display: "flex",
+                    flexDirection: "column",
+                    flex: 1,
+                    borderRadius: 2,
+                    backgroundColor: theme.palette.background.paper,
+                    boxShadow: "none",
+                }}
+            >
+                <CardContent
+                    sx={{
+                        position: "relative",
+                        // allow content to grow and push footer down
+                        flexGrow: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                    }}
+                >
+                    {/* Title (e.g., institution) */}
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            fontWeight: "bold",
+                            mb: 1,
+                            color: theme.palette.text.primary,
+                        }}
+                    >
+                        {title}
+                    </Typography>
+
+                    {/* Quote icon */}
+                    <FormatQuoteIcon
+                        sx={{
+                            color: theme.palette.text.secondary,
+                            fontSize: 28,
+                        }}
+                    />
+
+                    {/* Testimonial text */}
+                    <Typography
+                        variant="body1"
+                        sx={{
+                            mt: 1,
+                            whiteSpace: "pre-line",
+                            color: theme.palette.text.primary,
+                            lineHeight: 1.6,
+                            // push author to the bottom
+                            flexGrow: 1,
+                        }}
+                    >
+                        {text}
+                    </Typography>
+
+                    {/* Author */}
+                    <Typography
+                        variant="subtitle2"
+                        sx={{
+                            mt: 3,
+                            fontStyle: "italic",
+                            textAlign: "right",
+                            color: theme.palette.text.secondary,
+                        }}
+                    >
+                        — {author}
+                    </Typography>
+                </CardContent>
+            </Card>
+        </Box>
+    );
 }
 
 export default TestimonyCard;

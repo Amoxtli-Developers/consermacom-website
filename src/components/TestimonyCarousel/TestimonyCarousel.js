@@ -1,51 +1,46 @@
+// components/TestimonyCarousel.jsx
 import React from "react";
-import Slider from "react-slick";
-import TestimonyCard from "../TestimonyCard/TestimonyCard";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { Box } from "@mui/material";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import { TestimonyCard } from "../TestimonyCard/TestimonyCard";
 
-function TestimonyCarousel({ testimonials }) {
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    cssEase: "linear",
-    responsive: [
-      {
-        breakpoint: 1024, // Adjust for tablets
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600, // Adjust for smaller devices
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+// Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
 
-  return (
-    <Box sx={{ overflow: "hidden", paddingBottom: 5}}>
-      <Slider {...settings}>
-        {testimonials.map((testimonial, index) => (
-          <TestimonyCard
-            key={index}
-            testimonial={testimonial.text}
-            name={testimonial.name}
-          />
-        ))}
-      </Slider>
-    </Box>
-  );
+export function TestimonyCarousel({ testimonials }) {
+    return (
+        <Box sx={{ overflow: "visible", py: { xs: 2, sm: 4, md: 6 } }}>
+            <Swiper
+                modules={[Autoplay, Pagination]}
+                loop
+                speed={600}
+                autoplay={{ delay: 5000, disableOnInteraction: false }}
+                pagination={{ clickable: true }}
+                slidesPerView={3}
+                spaceBetween={24}
+                breakpoints={{
+                    0: { slidesPerView: 1 },
+                    600: { slidesPerView: 2 },
+                    960: { slidesPerView: 3 },
+                }}
+            >
+                {testimonials.map((t, idx) => (
+                    <SwiperSlide key={idx}>
+                        {/* Ensure each slide stretches to full height */}
+                        <Box sx={{ height: "100%" }}>
+                            <TestimonyCard
+                                title={t.title}
+                                text={t.text}
+                                author={t.author}
+                            />
+                        </Box>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </Box>
+    );
 }
 
 export default TestimonyCarousel;

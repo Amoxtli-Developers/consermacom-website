@@ -9,9 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+
 import { Link as RouterLink } from "react-router-dom";
 import logo from "../../assets/images/logo/consermacom.png";
 
@@ -154,7 +152,7 @@ function Nav() {
                 Llámanos: 55 5555-5555
               </a>
             </Typography>
-            <IconButton
+            {/* <IconButton
               component="a"
               href="https://www.instagram.com"
               aria-label="Instagram"
@@ -177,7 +175,7 @@ function Nav() {
               target="_blank"
             >
               <WhatsAppIcon sx={{ color: "#c80000" }} />
-            </IconButton>
+            </IconButton> */}
           </Box>
         </Toolbar>
       </Container>

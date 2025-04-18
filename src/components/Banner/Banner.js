@@ -1,63 +1,85 @@
 import React from "react";
-import { Box, Card, CardContent, Typography, useTheme } from "@mui/material";
-import { useMediaQuery } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 
-const Banner = (props) => {
-  const { title, description, imageUrl } = props;
-  const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm")); // For small devices
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md")); // For medium devices
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+const Banner = ({ title, description, imageUrl }) => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const isTablet = useMediaQuery(theme.breakpoints.down("md"));
 
-  const cardStyles = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    backgroundImage: `url(${imageUrl})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    color: "white",
-    height: "100%",
-    borderRadius: "20px",
-  };
+    // Responsive font sizes
+    const titleFontSize = isMobile ? "2rem" : isTablet ? "2.5rem" : "3rem";
+    const descriptionFontSize = isMobile ? "1rem" : "1.25rem";
 
-  const titleFontSize = matchesSM ? "40px" : matchesMD ? "50px" : "60px";
-  const descriptionFontSize = matchesSM ? "18px" : "25px";
-  const slideHeight = isMobile ? "30vh" : "45vh";
+    // Layout direction: column on mobile, row otherwise
+    const flexDirection = isMobile ? "column" : "row";
 
-  return (
-    <Box
-      sx={{
-        padding: isMobile ? "0 20px" : "0 50px",
-        boxSizing: "border-box",
-      }}
-    >
-      <Card sx={{ ...cardStyles, height: slideHeight }}>
-        <CardContent
-          sx={{
-            flexGrow: 1,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            textAlign: "center",
-          }}
+    return (
+        <Box
+            sx={{
+                display: "flex",
+                flexDirection,
+                borderRadius: "20px",
+                overflow: "hidden",
+                height: isMobile ? "auto" : "45vh",
+            }}
         >
-          <Typography
-            gutterBottom
-            variant="h1"
-            component="h1"
-            sx={{ fontSize: titleFontSize, fontWeight: "bold" }}
-          >
-            {title}
-          </Typography>
-          <Typography variant="body2" sx={{ fontSize: descriptionFontSize }}>
-            {description}
-          </Typography>
-        </CardContent>
-      </Card>
-    </Box>
-  );
+            {/* Text Section */}
+            <Box
+                sx={{
+                    flex: 2,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    textAlign: "center",
+                    p: 3,
+                }}
+            >
+                <Typography
+                    variant="h1"
+                    component="h1"
+                    sx={{
+                        fontSize: titleFontSize,
+                        fontWeight: "bold",
+                        mb: 2,
+                        color: theme.palette.text.primary,
+                    }}
+                >
+                    {title}
+                </Typography>
+                <Typography
+                    sx={{
+                        fontSize: descriptionFontSize,
+                        color: theme.palette.text.secondary,
+                    }}
+                >
+                    {description}
+                </Typography>
+            </Box>
+
+            {/* Smaller Image Section */}
+            <Box
+                sx={{
+                    flex: 1,
+                    width: isMobile ? "100%" : "40%",
+                    height: isMobile ? "200px" : "100%",
+                    overflow: "hidden",
+                }}
+            >
+                <Box
+                    component="img"
+                    src={imageUrl}
+                    alt={title}
+                    sx={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        display: "block",
+                    }}
+                />
+            </Box>
+        </Box>
+    );
 };
 
 export default Banner;

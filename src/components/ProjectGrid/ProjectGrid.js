@@ -1,4 +1,4 @@
-// ProjectGrid.js
+// components/ProjectGrid.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -16,7 +16,10 @@ import {
 } from "@mui/material";
 import PropTypes from 'prop-types';
 
-function ProjectGrid({ projects, tabsAlignment, titleActive}) {
+// Import your projects data
+import projects from '../../data/projects.js';
+
+function ProjectGrid({ tabsAlignment, titleActive }) {
   const [value, setValue] = useState(0);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -27,6 +30,7 @@ function ProjectGrid({ projects, tabsAlignment, titleActive}) {
     setValue(newValue);
   };
 
+  // filter: 0 = All, 1 = Club, 2 = DIF, 3 = Amistad
   const filteredProjects = projects.filter(
     (project) => project.category === value || value === 0
   );
@@ -40,15 +44,15 @@ function ProjectGrid({ projects, tabsAlignment, titleActive}) {
       sx={{
         maxWidth: "100%",
         margin: "auto",
-        padding: isMobile ? "0 20px" : isTablet ? "0 50px" : "0 100px",
-        paddingBottom: 10,
+        p: isMobile ? "0 20px" : isTablet ? "0 50px" : "0 100px",
+        pb: 10,
         overflowX: "hidden",
       }}
     >
       <Typography
         variant="h3"
         component="h3"
-        paddingBottom={3}
+        pb={3}
         sx={{
           fontSize: isMobile ? "1.5rem" : "2.5rem",
           fontWeight: "bold",
@@ -62,8 +66,8 @@ function ProjectGrid({ projects, tabsAlignment, titleActive}) {
         sx={{
           borderBottom: 1,
           borderColor: "transparent",
-          paddingBottom: 3,
-          justifyContent: tabsAlignment, // align tabs box
+          pb: 3,
+          justifyContent: tabsAlignment,
           display: "flex",
         }}
       >
@@ -73,26 +77,15 @@ function ProjectGrid({ projects, tabsAlignment, titleActive}) {
           variant="scrollable"
           scrollButtons="auto"
           aria-label="project categories"
-          TabIndicatorProps={{
-            sx: {
-              backgroundColor: "#c80000",
-            },
-          }}
+          TabIndicatorProps={{ sx: { backgroundColor: "#c80000" } }}
           sx={{
-            "& .MuiTabs-indicator": {
-              backgroundColor: "#c80000",
-            },
-            "& .Mui-selected": {
-              color: "#c80000 !important",
-              fontWeight: "bold",
-            },
+            '& .Mui-selected': { color: '#c80000 !important', fontWeight: 'bold' }
           }}
         >
           <Tab label="Todos" />
-          <Tab label="Categoría1" />
-          <Tab label="Categoría2" />
-          <Tab label="Categoría3" />
-          <Tab label="Categoría4" />
+          <Tab label="Club de Banqueros" />
+          <Tab label="DIF CDMX" />
+          <Tab label="Casa de la Amistad" />
         </Tabs>
       </Box>
       <Grid container spacing={2}>
@@ -105,52 +98,42 @@ function ProjectGrid({ projects, tabsAlignment, titleActive}) {
                   borderRadius: "20px",
                   position: "relative",
                   overflow: "hidden",
-                  "&:hover .cardContent": {
-                    opacity: 1,
-                  },
+                  '&:hover .cardContent': { opacity: 1 }
                 }}
               >
                 <CardMedia
                   component="img"
                   src={project.image}
-                  alt={`Project ${project.title}`}
+                  alt={project.title}
                   sx={{
                     height: "100%",
                     objectFit: "cover",
-                    transition: "transform .5s ease-in-out",
-                    "&:hover": {
-                      transform: "scale(1.05)",
-                    },
+                    transition: "transform .5s",
+                    '&:hover': { transform: 'scale(1.05)' }
                   }}
                 />
                 <CardContent
                   className="cardContent"
                   sx={{
                     position: "absolute",
-                    top: 0,
-                    right: 0,
-                    bottom: 0,
-                    left: 0,
+                    inset: 0,
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
                     backgroundColor: "#c80000",
                     color: "white",
-                    transition: "opacity 0.3s ease-in-out",
                     opacity: 0,
-                    padding: theme.spacing(2),
+                    transition: "opacity 0.3s",
+                    p: 2,
                   }}
                 >
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="h5"
-                    sx={{ fontWeight: "bold", fontSize: "30px" }}
-                  >
+                  <Typography gutterBottom variant="h5" component="h5" sx={{ fontWeight: "bold" }}>
                     {project.title}
                   </Typography>
-                  <Typography variant="body2">{project.description}</Typography>
+                  <Typography variant="body2">
+                    {project.description}
+                  </Typography>
                 </CardContent>
               </Card>
             </CardActionArea>
@@ -162,19 +145,15 @@ function ProjectGrid({ projects, tabsAlignment, titleActive}) {
 }
 
 ProjectGrid.propTypes = {
-  projects: PropTypes.array.isRequired,
   tabsAlignment: PropTypes.oneOf([
-    'center',
-    'flex-start',
-    'flex-end',
-    'space-between',
-    'space-around',
-    'space-evenly',
+    'center','flex-start','flex-end','space-between','space-around','space-evenly',
   ]),
+  titleActive: PropTypes.bool,
 };
 
 ProjectGrid.defaultProps = {
   tabsAlignment: 'center',
+  titleActive: true,
 };
 
 export default ProjectGrid;
