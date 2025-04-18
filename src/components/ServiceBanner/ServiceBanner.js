@@ -1,85 +1,98 @@
 import React from "react";
 import { Box, Typography, Grid, useTheme, useMediaQuery } from "@mui/material";
-import StepIcon1 from "@mui/icons-material/DesignServices"; // Example icon, replace with your own
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import BuildIcon from "@mui/icons-material/Build";
+import InsightsIcon from "@mui/icons-material/Insights";
+import LightbulbIcon from "@mui/icons-material/Lightbulb";
 
-
-const steps = [
-  {
-    id: 1,
-    title: "Diseño esquemático",
-    description:
-      "Para cada proyecto establecemos relaciones con socios que sabemos que nos ayudarán.",
-    icon: <StepIcon1 />,
-  },
-  {
-    id: 2,
-    title: "Diseño esquemático",
-    description:
-      "Para cada proyecto establecemos relaciones con socios que sabemos que nos ayudarán.",
-    icon: <StepIcon1 />,
-  },
-  {
-    id: 3,
-    title: "Diseño esquemático",
-    description:
-      "Para cada proyecto establecemos relaciones con socios que sabemos que nos ayudarán.",
-    icon: <StepIcon1 />,
-  },
-  {
-    id: 4,
-    title: "Diseño esquemático",
-    description:
-      "Para cada proyecto establecemos relaciones con socios que sabemos que nos ayudarán.",
-    icon: <StepIcon1 />,
-  },
+const features = [
+    {
+        id: 1,
+        title: "Experiencia comprobada en el sector",
+        description:
+            "Más de 18 años respaldan nuestro trabajo en construcción, remodelación y mantenimiento integral, con resultados sólidos y clientes satisfechos.",
+        icon: <VerifiedUserIcon sx={{ fontSize: 50, color: "#fff" }} />,
+    },
+    {
+        id: 2,
+        title: "Soluciones integrales multimarca",
+        description:
+            "Atendemos desde sistemas de elevación hasta bienes muebles e inmuebles, ofreciendo mantenimiento preventivo y correctivo a todo tipo de instalación.",
+        icon: <BuildIcon sx={{ fontSize: 50, color: "#fff" }} />,
+    },
+    {
+        id: 3,
+        title: "Enfoque estratégico en cada proyecto",
+        description:
+            "Aplicamos liderazgo técnico y planificación eficiente en todas las etapas, asegurando calidad, cumplimiento y sostenibilidad a largo plazo.",
+        icon: <InsightsIcon sx={{ fontSize: 50, color: "#fff" }} />,
+    },
+    {
+        id: 4,
+        title: "Compromiso con la innovación y la mejora continua",
+        description:
+            "Integramos procesos modernos, tecnología actualizada y buenas prácticas para ofrecer servicios de alto nivel, adaptados a cada cliente.",
+        icon: <LightbulbIcon sx={{ fontSize: 50, color: "#fff" }} />,
+    },
 ];
 
 const ServiceBanner = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
-  return (
-    <Box
-      sx={{
-        position: "relative",
-        bgcolor: "rgba(0, 0, 0, 0.7)", // Dark overlay
-        color: "white",
-        borderRadius: "20px",
-        margin: isMobile ? "0 20px" : isTablet ? "0 50px" : "0 100px",
-        marginBottom: 10,
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
-      }}
-    >
+    return (
+        <Box
+            sx={{
+                position: "relative",
+                bgcolor: "rgba(0, 0, 0, 0.7)",
+                color: "white",
+                borderRadius: "20px",
+                mx: isMobile ? 2 : isTablet ? 5 : 10,
+                mb: 10,
+                overflow: "hidden",
+            }}
+        >
+            {/* If you want to keep the background image, uncomment and update the path: */}
+            {/* 
       <Box
         component="img"
-        src="/path-to-your-background-image.jpg" // Replace with your actual background image path
+        src="/images/your-bg.jpg"
         sx={{
           position: "absolute",
-          top: 0,
-          left: 0,
+          inset: 0,
           width: "100%",
           height: "100%",
-          borderRadius: "8px",
           objectFit: "cover",
           zIndex: -1,
-          opacity: 0.5, // Dim the image a bit
+          opacity: 0.5,
         }}
-      />
-      <Grid container spacing={2} sx={{padding:15}}>
-        {steps.map((step) => (
-          <Grid item xs={12} sm={6} md={3} key={step.id} sx={{textAlign: "center"}}>
-            <Box sx={{ display: "block", alignItems: "center" }}>
-              <Box sx={{ marginRight: 2 }}>{step.icon}</Box>
-              <Box>
-                <Typography variant="h6">{step.title}</Typography>
-                <Typography>{step.description}</Typography>
-              </Box>
+      /> 
+      */}
+            <Box sx={{ p: isMobile ? 3 : 6 }}>
+                <Grid container spacing={4}>
+                    {features.map((f) => (
+                        <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            md={3}
+                            key={f.id}
+                            sx={{ textAlign: "center" }}
+                        >
+                            <Box sx={{ mb: 2 }}>{f.icon}</Box>
+                            <Typography variant="h6" gutterBottom>
+                                {f.title}
+                            </Typography>
+                            <Typography variant="body2">
+                                {f.description}
+                            </Typography>
+                        </Grid>
+                    ))}
+                </Grid>
             </Box>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
-  );
+        </Box>
+    );
 };
 
 export default ServiceBanner;

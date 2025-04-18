@@ -42,7 +42,7 @@ const Banner = ({ title, description, imageUrl }) => {
                         fontSize: titleFontSize,
                         fontWeight: "bold",
                         mb: 2,
-                        color: theme.palette.text.primary,
+                        color: "#164d8d",
                     }}
                 >
                     {title}

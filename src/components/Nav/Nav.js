@@ -146,10 +146,10 @@ function Nav() {
           >
             <Typography variant="body1" sx={{ mr: 5 }}>
               <a
-                href="tel:+5555555555"
+                href="tel:+525545551690"
                 style={{ color: "#164d8d", textDecoration: "none" }}
               >
-                Llámanos: 55 5555-5555
+                Llámanos: +52 55 4555 1690
               </a>
             </Typography>
             {/* <IconButton
