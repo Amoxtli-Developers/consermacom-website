@@ -27,6 +27,7 @@ import Ipn from "../../assets/images/home/clients/16.jpg";
 import Profeco from "../../assets/images/home/clients/17.jpg";
 import Sedatu from "../../assets/images/home/clients/18.jpg";
 import Sep from "../../assets/images/home/clients/19.jpg";
+import Inai from "../../assets/images/home/clients/20.jpeg";
 
 const clientLogos = [
     {
@@ -54,6 +55,7 @@ const clientLogos = [
     { src: Profeco, alt: "PROFECO" },
     { src: Sedatu, alt: "SEDATU" },
     { src: Sep, alt: "SEP" },
+    {src:Inai, alt: "INAI"},
 ];
 
 export function ClientsCarousel() {

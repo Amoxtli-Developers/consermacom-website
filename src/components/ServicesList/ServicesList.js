@@ -12,9 +12,9 @@ import {
 } from "@mui/material";
 
 // Import a separate image for each service
-import elevadoresImg from "../../assets/images/services/1.jpg";
+import elevadoresImg from "../../assets/images/services/1.jpeg";
 import inmueblesImg from "../../assets/images/services/2.jpg";
-import equiposImg from "../../assets/images/services/3.jpg";
+import equiposImg from "../../assets/images/services/3.jpeg";
 import obraCivilImg from "../../assets/images/services/4.jpg";
 import arquitecturaImg from "../../assets/images/services/5.jpg";
 

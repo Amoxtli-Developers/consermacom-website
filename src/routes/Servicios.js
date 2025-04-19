@@ -15,6 +15,7 @@ import ServiceGrid from "../components/ServiceGrid/ServiceGrid";
 import WorkButton from "../components/WorkButton/WorkButton";
 import Footer from "../components/Footer/Footer";
 import ServiceBanner from "../components/ServiceBanner/ServiceBanner";
+import ServicePhoto from "../components/ServicePhoto/ServicePhoto";
 
 const theme = createTheme({
     typography: {
@@ -38,6 +39,10 @@ function Servicios() {
         threshold: 0.1,
     });
     const [refWorkButton, inViewWorkButton] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+    const [refServicePhoto, inViewServicePhoto] = useInView({
         triggerOnce: true,
         threshold: 0.1,
     });
@@ -89,6 +94,11 @@ function Servicios() {
                         <ServiceBanner />
                     </div>
                 </Fade>
+            </div>
+            <div ref={refServicePhoto}>
+                <Slide direction="left" in={inViewServicePhoto} timeout={1000}>
+                    <ServicePhoto />
+                </Slide>
             </div>
             <div ref={refWorkButton}>
                 <Fade in={inViewWorkButton} timeout={1000}>
