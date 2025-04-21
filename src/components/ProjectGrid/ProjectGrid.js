@@ -1,6 +1,5 @@
 // components/ProjectGrid.jsx
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   Tabs,
   Tab,
@@ -24,7 +23,7 @@ function ProjectGrid({ tabsAlignment, titleActive }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -36,7 +35,7 @@ function ProjectGrid({ tabsAlignment, titleActive }) {
   );
 
   const handleCardClick = (projectId) => {
-    navigate(`/detalles-proyecto/${projectId}`);
+    //navigate(`/detalles-proyecto/${projectId}`);
   };
 
   return (
