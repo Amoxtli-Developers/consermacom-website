@@ -90,12 +90,13 @@ function ProjectGrid({ tabsAlignment, titleActive }) {
             <CardActionArea onClick={() => handleCardClick(project.id)}>
               <Card
                 sx={{
-                  height: 300,
+                  aspectRatio: "4 / 3",
                   borderRadius: "20px",
                   position: "relative",
                   overflow: "hidden",
+                  backgroundColor: "#f5f5f5",
                   '&:hover .cardContent': { opacity: 1 },
-                  '&:hover .cardMedia': { transform: 'scale(1.05)' },
+                  '&:hover .cardMedia': { transform: 'scale(1.03)' },
                 }}
               >
                 <CardMedia
@@ -104,9 +105,12 @@ function ProjectGrid({ tabsAlignment, titleActive }) {
                   src={project.image}
                   alt={project.title}
                   sx={{
+                    width: "100%",
                     height: "100%",
-                    objectFit: "cover",
+                    objectFit: "contain",
+                    objectPosition: "center",
                     transition: "transform .5s",
+                    imageRendering: "auto",
                   }}
                 />
                 <CardContent
