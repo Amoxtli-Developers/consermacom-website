@@ -10,7 +10,6 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
-  CardMedia,
 } from "@mui/material";
 import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
@@ -94,27 +93,47 @@ function ProjectGrid({ tabsAlignment, titleActive }) {
                   borderRadius: "20px",
                   position: "relative",
                   overflow: "hidden",
-                  backgroundColor: "#f5f5f5",
-                  '&:hover .cardContent': { opacity: 1 },
-                  '&:hover .cardMedia': { transform: 'scale(1.03)' },
+                  '&:hover .cardOverlay': { opacity: 1 },
                 }}
               >
-                <CardMedia
-                  className="cardMedia"
-                  component="img"
-                  src={project.image}
-                  alt={project.title}
+                {/* Blurred background — fills card completely */}
+                <Box
                   sx={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "contain",
-                    objectPosition: "center",
-                    transition: "transform .5s",
-                    imageRendering: "auto",
+                    position: "absolute",
+                    inset: 0,
+                    backgroundImage: `url(${project.image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    filter: "blur(12px) brightness(0.85)",
+                    transform: "scale(1.15)",
                   }}
                 />
+                {/* Sharp logo centered on top */}
+                <Box
+                  sx={{
+                    position: "absolute",
+                    inset: 0,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    p: 3,
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={project.image}
+                    alt={project.title}
+                    sx={{
+                      maxWidth: "85%",
+                      maxHeight: "85%",
+                      objectFit: "contain",
+                      filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.3))",
+                    }}
+                  />
+                </Box>
+                {/* Hover overlay */}
                 <CardContent
-                  className="cardContent"
+                  className="cardOverlay"
                   sx={{
                     position: "absolute",
                     inset: 0,
