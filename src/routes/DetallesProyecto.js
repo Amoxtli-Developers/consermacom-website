@@ -10,10 +10,10 @@ import {
 } from "@mui/material";
 
 import Nav from "../components/Nav/Nav";
-import ProjectCarousel from "../components/ProjectCarousel/ProjectCarousel";
 import ProjectDescription from "../components/ProjectDescription/ProjectDescription";
 import WorkButton from "../components/WorkButton/WorkButton";
 import Footer from "../components/Footer/Footer";
+import projects from "../data/projects.js";
 
 const theme = createTheme({
   typography: {
@@ -25,34 +25,20 @@ function DetallesProyecto() {
   const { id } = useParams();
   const [isLoading, setLoading] = useState(true);
 
-  const [refCarousel, inViewCarousel] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-  const [refDescription, inViewDescription] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-  const [refWorkButton, inViewWorkButton] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [refImage, inViewImage] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [refDescription, inViewDescription] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [refWorkButton, inViewWorkButton] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, [id]);
 
+  const project = projects.find((p) => p.id === parseInt(id));
+
   if (isLoading) {
     return (
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        minHeight="100vh"
-      >
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
         <CircularProgress sx={{ color: "#c80000" }} />
       </Box>
     );
@@ -61,13 +47,23 @@ function DetallesProyecto() {
   return (
     <ThemeProvider theme={theme}>
       <Nav />
-      <div ref={refCarousel}>
-        <Fade in={inViewCarousel} timeout={1000}>
-          <div>
-            <ProjectCarousel projectId={id} />
-          </div>
-        </Fade>
-      </div>
+      {project && (
+        <div ref={refImage}>
+          <Fade in={inViewImage} timeout={1000}>
+            <Box
+              component="img"
+              src={project.image}
+              alt={project.title}
+              sx={{
+                width: "100%",
+                height: { xs: "30vh", sm: "50vh", md: "60vh" },
+                objectFit: "cover",
+                display: "block",
+              }}
+            />
+          </Fade>
+        </div>
+      )}
       <div ref={refDescription}>
         <Fade in={inViewDescription} timeout={1000}>
           <div>

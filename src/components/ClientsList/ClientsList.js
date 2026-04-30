@@ -28,6 +28,11 @@ import Profeco from "../../assets/images/home/clients/17.jpg";
 import Sedatu from "../../assets/images/home/clients/18.jpg";
 import Sep from "../../assets/images/home/clients/19.jpg";
 import Inai from "../../assets/images/home/clients/20.jpeg";
+import CallCenter from "../../assets/images/home/Call center.png";
+import Yama from "../../assets/images/home/YAMA.png";
+import SaludPublica from "../../assets/images/home/Secretaría de Salud Pública.png";
+import AutoridadEducativa from "../../assets/images/home/Autoridad Educativa Federal de la Ciudad de México.png";
+import Consejeria from "../../assets/images/home/consejeria.png";
 
 const clientLogos = [
     {
@@ -55,7 +60,12 @@ const clientLogos = [
     { src: Profeco, alt: "PROFECO" },
     { src: Sedatu, alt: "SEDATU" },
     { src: Sep, alt: "SEP" },
-    {src:Inai, alt: "INAI"},
+    { src: Inai, alt: "INAI" },
+    { src: CallCenter, alt: "Call Center Services" },
+    { src: Yama, alt: "Corporativo Yama Alpes" },
+    { src: SaludPublica, alt: "Secretaría de Salud Pública de la Ciudad de México" },
+    { src: AutoridadEducativa, alt: "Autoridad Educativa Federal en la Ciudad de México" },
+    { src: Consejeria, alt: "Consejería Jurídica y de Servicios Legales" },
 ];
 
 export function ClientsCarousel() {

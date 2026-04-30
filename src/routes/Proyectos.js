@@ -11,7 +11,7 @@ import {
 import Nav from "../components/Nav/Nav";
 import Footer from "../components/Footer/Footer";
 import ProjectGrid from "../components/ProjectGrid/ProjectGrid";
-import projectPlaceholder from "../assets/images/home/experience.png";
+import Header from "../components/Header/Header";
 
 const theme = createTheme({
   typography: {
@@ -19,70 +19,17 @@ const theme = createTheme({
   },
 });
 
-const projectsData = [
-  {
-    id: 1,
-    category: 0,
-    image: projectPlaceholder,
-    title: "Project 1 Title",
-    description: "Description for Project 1",
-  },
-  {
-    id: 2,
-    category: 1,
-    image: projectPlaceholder,
-    title: "Project 2 Title",
-    description: "Description for Project 2",
-  },
-  {
-    id: 3,
-    category: 1,
-    image: projectPlaceholder,
-    title: "Project 2 Title",
-    description: "Description for Project 2",
-  },
-  {
-    id: 4,
-    category: 1,
-    image: projectPlaceholder,
-    title: "Project 2 Title",
-    description: "Description for Project 2",
-  },
-  {
-    id: 5,
-    category: 1,
-    image: projectPlaceholder,
-    title: "Project 2 Title",
-    description: "Description for Project 2",
-  },
-  {
-    id: 6,
-    category: 1,
-    image: projectPlaceholder,
-    title: "Project 2 Title",
-    description: "Description for Project 2",
-  },
-  {
-    id: 7,
-    category: 1,
-    image: projectPlaceholder,
-    title: "Project 2 Title",
-    description: "Description for Project 2",
-  },
-];
-
 function Proyectos() {
   const [isLoading, setLoading] = useState(true);
   const [refGallery, inViewGallery] = useInView({
     triggerOnce: true,
-    threshold: 0.3,
+    threshold: 0.1,
   });
 
   useEffect(() => {
-    // Simulate fetching data with a timeout
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Adjust the timeout duration as needed
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -102,10 +49,14 @@ function Proyectos() {
   return (
     <ThemeProvider theme={theme}>
       <Nav />
+      <Header
+        title="Nuestros Proyectos"
+        text="Más de 18 años de experiencia respaldan nuestro trabajo. Conoce algunos de los proyectos que hemos realizado para instituciones públicas y privadas en la Ciudad de México."
+      />
       <div ref={refGallery}>
         <Fade in={inViewGallery} timeout={1000}>
           <div>
-            <ProjectGrid projects={projectsData} tabsAlignment="center" />
+            <ProjectGrid tabsAlignment="flex-start" titleActive={false} />
           </div>
         </Fade>
       </div>

@@ -1,4 +1,3 @@
-// components/ProjectGrid.jsx
 import React, { useState } from "react";
 import {
   Tabs,
@@ -14,28 +13,27 @@ import {
   CardMedia,
 } from "@mui/material";
 import PropTypes from 'prop-types';
+import { useNavigate } from "react-router-dom";
 
-// Import your projects data
-import projects from '../../data/projects.js';
+import projects, { categoryTabs } from '../../data/projects.js';
 
 function ProjectGrid({ tabsAlignment, titleActive }) {
   const [value, setValue] = useState(0);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  // filter: 0 = All, 1 = Club, 2 = DIF, 3 = Amistad
   const filteredProjects = projects.filter(
     (project) => project.category === value || value === 0
   );
 
   const handleCardClick = (projectId) => {
-    //navigate(`/detalles-proyecto/${projectId}`);
+    navigate(`/detalles-proyecto/${projectId}`);
   };
 
   return (
@@ -81,10 +79,9 @@ function ProjectGrid({ tabsAlignment, titleActive }) {
             '& .Mui-selected': { color: '#c80000 !important', fontWeight: 'bold' }
           }}
         >
-          <Tab label="Todos" />
-          <Tab label="Club de Banqueros" />
-          <Tab label="DIF CDMX" />
-          <Tab label="Casa de la Amistad" />
+          {categoryTabs.map((tab) => (
+            <Tab key={tab.value} label={tab.label} />
+          ))}
         </Tabs>
       </Box>
       <Grid container spacing={2}>
@@ -97,10 +94,12 @@ function ProjectGrid({ tabsAlignment, titleActive }) {
                   borderRadius: "20px",
                   position: "relative",
                   overflow: "hidden",
-                  '&:hover .cardContent': { opacity: 1 }
+                  '&:hover .cardContent': { opacity: 1 },
+                  '&:hover .cardMedia': { transform: 'scale(1.05)' },
                 }}
               >
                 <CardMedia
+                  className="cardMedia"
                   component="img"
                   src={project.image}
                   alt={project.title}
@@ -108,7 +107,6 @@ function ProjectGrid({ tabsAlignment, titleActive }) {
                     height: "100%",
                     objectFit: "cover",
                     transition: "transform .5s",
-                    '&:hover': { transform: 'scale(1.05)' }
                   }}
                 />
                 <CardContent
@@ -127,10 +125,10 @@ function ProjectGrid({ tabsAlignment, titleActive }) {
                     p: 2,
                   }}
                 >
-                  <Typography gutterBottom variant="h5" component="h5" sx={{ fontWeight: "bold" }}>
+                  <Typography gutterBottom variant="h5" component="h5" sx={{ fontWeight: "bold", textAlign: "center" }}>
                     {project.title}
                   </Typography>
-                  <Typography variant="body2">
+                  <Typography variant="body2" sx={{ textAlign: "center" }}>
                     {project.description}
                   </Typography>
                 </CardContent>

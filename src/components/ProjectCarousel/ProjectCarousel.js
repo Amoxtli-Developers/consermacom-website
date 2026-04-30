@@ -5,12 +5,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import CarouselCard from "../CarouselCard/CarouselCard";
-import carouselPlaceholder from "../../assets/images/home/main-slider1.png";
+import projects from "../../data/projects.js";
 
-function ProjectCarousel() {
+function ProjectCarousel({ projectId }) {
   const theme = useTheme();
-  // Adjust breakpoints as needed
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const project = projects.find((p) => p.id === parseInt(projectId));
+
+  const slides = project
+    ? [
+        { imageUrl: project.image1 },
+        { imageUrl: project.image2 },
+      ]
+    : [];
 
   const settings = {
     dots: true,
@@ -19,43 +27,24 @@ function ProjectCarousel() {
     slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
-    autoplay: true, // Note: Corrected typo from 'autolay' to 'autoplay'
-    // Additional responsive settings can be applied here if needed
+    autoplay: true,
   };
 
-  const cardsData = [
-    {
-      imageUrl: carouselPlaceholder,
-    },
-    {
-      imageUrl: carouselPlaceholder,
-    },
-    {
-      imageUrl: carouselPlaceholder,
-    },
-  ];
-
-  // Define the desired height for the slides dynamically
   const slideHeight = isMobile ? "30vh" : "60vh";
 
   return (
-    <Box
-      sx={{ width: "100%", overflow: "hidden"}}
-    >
+    <Box sx={{ width: "100%", overflow: "hidden" }}>
       <Slider {...settings}>
-        {cardsData.map((card, index) => (
+        {slides.map((slide, index) => (
           <Box
             key={index}
             sx={{
               height: slideHeight,
-              // Adjust padding or other properties for responsiveness
               padding: isMobile ? "0 25px" : "0 55px",
               boxSizing: "border-box",
             }}
           >
-            <CarouselCard
-              imageUrl={card.imageUrl}
-            />
+            <CarouselCard imageUrl={slide.imageUrl} />
           </Box>
         ))}
       </Slider>
@@ -63,11 +52,10 @@ function ProjectCarousel() {
         {`
           .slick-dots {
             position: relative;
-            bottom: -5px; /* Ajusta la posición vertical de los puntos indicadores */
+            bottom: -5px;
           }
-
           .slick-dots li button:before {
-            font-size: 12px; /* Ajusta el tamaño de los puntos indicadores */
+            font-size: 12px;
           }
         `}
       </style>
