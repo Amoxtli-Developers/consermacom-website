@@ -23,7 +23,6 @@ const ProjectDescription = ({ projectId }) => {
     objectives,
     approach,
     client,
-    date,
     categoryLabel,
     ubication,
   } = project;
@@ -179,16 +178,6 @@ const ProjectDescription = ({ projectId }) => {
                 sx={{ marginBottom: isMobile ? "20px" : "40px", color: "#868686" }}
               >
                 {client}
-              </Typography>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold", color: "#164d8d" }}>
-                Fecha
-              </Typography>
-              <Typography
-                variant="body1"
-                gutterBottom
-                sx={{ marginBottom: isMobile ? "20px" : "40px", color: "#868686" }}
-              >
-                {date}
               </Typography>
               <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold", color: "#164d8d" }}>
                 Categoría
