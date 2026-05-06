@@ -35,7 +35,44 @@ const ProjectDescription = ({ projectId }) => {
         boxSizing: "border-box",
       }}
     >
-      <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+      {/* Logo + título en fila de artículo */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: isMobile ? 2 : 4,
+          mt: isMobile ? 3 : 5,
+          mb: isMobile ? 2 : 4,
+          flexDirection: isMobile ? "column" : "row",
+        }}
+      >
+        <Box
+          component="img"
+          src={project.image}
+          alt={title}
+          sx={{
+            width: isMobile ? "120px" : "160px",
+            height: isMobile ? "120px" : "160px",
+            objectFit: "contain",
+            flexShrink: 0,
+            borderRadius: "12px",
+            backgroundColor: "#f5f5f5",
+            p: 1,
+          }}
+        />
+        <Typography
+          variant="h4"
+          sx={{
+            fontSize: isMobile ? "28px" : "40px",
+            fontWeight: "bold",
+            color: "#164d8d",
+          }}
+        >
+          {title}
+        </Typography>
+      </Box>
+
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Grid container spacing={isMobile ? 2 : 4}>
           <Grid item xs={12} md={8} sx={{ marginRight: isMobile ? 0 : "40px" }}>
             <Box
@@ -45,19 +82,6 @@ const ProjectDescription = ({ projectId }) => {
                 paddingRight: isMobile ? 0 : "20px",
               }}
             >
-              <Typography
-                variant="h4"
-                gutterBottom
-                sx={{
-                  fontSize: isMobile ? "28px" : "40px",
-                  fontWeight: "bold",
-                  color: "#164d8d",
-                  marginTop: isMobile ? "20px" : "30px",
-                  marginBottom: isMobile ? "20px" : "30px",
-                }}
-              >
-                {title}
-              </Typography>
               <Typography
                 variant="body1"
                 gutterBottom

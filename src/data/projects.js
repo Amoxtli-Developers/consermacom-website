@@ -1,4 +1,4 @@
-import banc from '../assets/images/home/banc.jpeg';
+import banc from '../assets/images/home/clients/9.jpg';
 import dif from '../assets/images/home/dif.png';
 import casa from '../assets/images/home/casa.png';
 import placeholder from '../assets/images/home/experience.png';
